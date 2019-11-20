@@ -1,0 +1,53 @@
+= link_to 'ハウス新規登録', new_house_path, class: 'btn btn-primary mr-3'
+= link_to 'ユーザー新規登録', new_admin_user_path, class: 'btn btn-primary mr-3'
+= link_to 'ユーザー一覧', admin_users_path, class: 'btn btn-primary'
+= link_to 'ハウス編集', houses_path, class: 'btn btn-primary ml-3'
+
+= search_form_for @q, url: root_path, class: 'mb-5' do |f|
+  / .form-group.row
+  /   = f.label :name_cont, '氏名', class: 'col-sm-2 col-form-label'
+  /   .col-sm-10
+  /     = f.search_field :name_cont, class: 'form-control'
+  / .form-group.row
+  /   = f.label :name_cont, '電話番号', class: 'col-sm-2 col-form-label'
+  /   .col-sm-10
+  /     = f.search_field :name_cont, class: 'form-control'
+  .form-group.row
+    = f.label :address_cont, '住所', class: 'col-sm-2 col-form-label mt-3'
+    .col-sm-10
+      = f.search_field :address_cont, class: 'form-control mt-3'
+  .form-group.row
+    = f.label :house_eq, 'ハウス', class: 'col-sm-2 col-form-label'
+    .col-sm-10
+      = f.search_field :house_eq, class: 'form-control'
+  / .form-group.row
+  /   = f.label :name_cont, 'お客様番号', class: 'col-sm-2 col-form-label'
+  /   .col-sm-10
+  /     = f.search_field :name_cont, class: 'form-control'
+  .form-group.row
+    = f.label :apartment_name_cont, '物件名', class: 'col-sm-2 col-form-label'
+    .col-sm-10
+      = f.search_field :apartment_name_cont, class: 'form-control'
+  .form-group
+    = f.submit class: 'btn btn-outline-primary'
+
+
+.mb-3
+table.table.table-hover
+  thead.thead-default
+    tr
+      th= House.human_attribute_name(:house)
+      th= House.human_attribute_name(:address)
+      th= House.human_attribute_name(:style)
+      th= House.human_attribute_name(:apartment_name)
+      th= House.human_attribute_name(:room_number)
+      th
+  tbody
+    - @houses.each do |house|
+      tr
+        td= link_to house.house, house
+        td= house.address
+        td= house.style
+        td= house.apartment_name
+        td= house.room_number
+

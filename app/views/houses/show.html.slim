@@ -1,0 +1,24 @@
+h1 ハウス詳細
+
+table.table.table-hover
+  tbody
+    tr
+      th= House.human_attribute_name(:house)
+      td= @house.house
+    tr
+      th= House.human_attribute_name(:address)
+      td= @house.address
+    tr
+      th= House.human_attribute_name(:style)
+      td= @house.style
+    tr
+      th= House.human_attribute_name(:apartment_name)
+      td= @house.apartment_name
+    tr
+      th= House.human_attribute_name(:room_number)
+      td= @house.room_number
+
+= link_to '新規オーダー', new_customer_path(@house.id), class: 'btn btn-primary mr-3'
+/ = link_to 'オーダー編集', edit_order_path, class: 'btn btn-secondary mr-3'
+/ = link_to 'オーダー削除', method: :delete, data: { confirm: "オーダーを削除します。よろしいですか？" }, class: 'btn btn-danger'
+

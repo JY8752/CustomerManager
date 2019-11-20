@@ -1,0 +1,18 @@
+h1　サービス登録
+
+/ - if @order.errors.present?
+/   ul#error_explanation
+/     - @order.errors.full_massages.each do |massage|
+/       li= massage
+
+= form_with scope: :session, url: orders_path, local: true do |f|
+  .form-group
+    = f.label :TV, 'TVサービス'
+    = f.select :TV, ['', 'プレミアム', 'スタンダード', 'コンパクト'], class: 'form-control'
+  .form-group
+    = f.label :NET, 'NETサービス'
+    = f.select :NET, ['', 'ハイスピード', 'ミドルスピード', 'ロウスピード'], class: 'forn-control'
+  .form-group
+    = f.label :PHONE, 'PHONEサービス'
+    = f.select :PHONE, ['', '家庭用回線', '事務用回線'], class: 'form-control'
+  = f.submit '次へ', class: 'btn btn-primary'

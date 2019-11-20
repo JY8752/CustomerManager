@@ -1,0 +1,23 @@
+doctype html
+html
+  head
+    title
+      | Customermanager
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  body
+    .apptitle.navbar.navbar-expand-md.navbar-light.bg-dark
+      = link_to 'CustomerManager', root_path, class: 'navbar-brand text-white'
+    
+      ul.navbar-nuv.ml-auto.list-inline
+        - if current_user
+          li.nav-item.text-white.list-inline-item #{@current_user.name}
+          li.nav-item.text-white.list-inline-item = link_to 'ログアウト', logout_path, method: :delete, clss: 'nav-link'
+        - else
+          li.nav-item= link_to 'ログイン', login_path, class: 'nav-link'
+    .container.mt-3
+      - if flash.notice.present?
+        .alert.alert-success= flash.notice
+      = yield

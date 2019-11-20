@@ -1,0 +1,39 @@
+h1 確認画面（最終）
+
+table.table.table-hover
+  tbody
+    tr
+      th= House.human_attribute_name(:house)
+      td= @house.house
+    tr
+      th= House.human_attribute_name(:address)
+      td= @house.address
+    tr
+      th= House.human_attribute_name(:style)
+      td= @house.style
+    tr
+      th= House.human_attribute_name(:apartment_name)
+      td= @house.apartment_name
+    tr
+      th= House.human_attribute_name(:room_number)
+      td= @house.room_number
+    tr
+      th= Customer.human_attribute_name(:name)
+      td= @customer.name
+    tr
+      th= Customer.human_attribute_name(:birthday)
+      td= @customer.birthday
+    tr
+      th= Customer.human_attribute_name(:phone_number)
+      td= @customer.phone_number
+    tr
+      th= Order.human_attribute_name(:TV)
+      td= @order.TV
+    tr
+      th= Order.human_attribute_name(:NET)
+      td= @order.NET
+    tr
+      th= Order.human_attribute_name(:PHONE)
+      td= @order.PHONE
+
+= link_to '登録完了', save_order_path, class: 'btn btn-primary'

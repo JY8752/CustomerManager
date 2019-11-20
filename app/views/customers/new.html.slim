@@ -1,0 +1,13 @@
+h1 お客様情報入力
+
+= form_with scope: :session, url: customers_path, local: true do |f|
+  .form-group
+    = f.label :name, '名前'
+    = f.text_field :name, class: 'form-control'
+  .form-group
+    = f.label :birthday, '生年月日'
+    = f.text_field :birthday, class: 'form-control'
+  .form-group
+    = f.label :phone_number, '連絡先'
+    = f.text_field :phone_number, class: 'form-control'
+  = f.submit '次へ', class: 'btn btn-primary'

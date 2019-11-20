@@ -1,0 +1,40 @@
+h1 ハウス一覧
+
+= search_form_for @q, url: houses_path, class: 'mb-5' do |f|
+  .form-group.row
+    = f.label :house_eqt, 'ハウス', class: 'col-sm-2 col-form-label'
+    .col-sm-10
+      = f.search_field :house_eq, class: 'form-control'
+  .form-group.row
+    = f.label :address_cont, '住所', class: 'col-sm-2 col-form-label'
+    .col-sm-10
+      = f.search_field :house_cont, class: 'form-control'
+  .form-group.row
+    = f.label :apartment_name_cont, '物件名', class: 'col-sm-2 col-form-label'
+    .col-sm-10
+      = f.search_field :apartment_name_cont, class: 'form-control'
+  .form-group
+    = f.submit class: 'btn btn-outline-primary'
+
+.mb-3
+table.table.table-hover
+  thead.thead-default
+    tr
+      th= House.human_attribute_name(:house)
+      th= House.human_attribute_name(:address)
+      th= House.human_attribute_name(:style)
+      th= House.human_attribute_name(:apartment_name)
+      th= House.human_attribute_name(:room_number)
+      th
+  tbody
+    - @houses.each do |house|
+      tr
+        td= house.house
+        td= house.address
+        td= house.style
+        td= house.apartment_name
+        td= house.room_number
+        td
+         = link_to '編集', edit_house_path(house), class: 'btn btn-primary mr-3'
+         = link_to '削除', house, method: :delete, data: { confirm: "ハウス「#{house.house}」を削除します。よろしいでしょうか？"}, class: 'btn btn-danger' 
+

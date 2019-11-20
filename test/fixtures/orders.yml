@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  TV: 1
+  NET: 1
+  PHONE: 1
+  new: MyString
+  edit: MyString
+
+two:
+  TV: 1
+  NET: 1
+  PHONE: 1
+  new: MyString
+  edit: MyString

@@ -1,0 +1,22 @@
+- if house.errors.present?
+  ul#error_explanation
+    - house.errors.full_massages.each do |massage|
+      li= massage
+
+= form_with model: house, local:true do |f|
+  .form-group
+    = f.label :address, '住所'
+    = f.text_field :address, class: 'form-control'
+  .form-check
+    = f.radio_button :style, '戸建', class: 'form-check-input', click: 'radio()'
+    = f.label :style, '戸建', class: 'form-check-label'
+  .form-check
+    = f.radio_button :style, '集合住宅', class: 'form-check-input', click: 'radio()', checked: true
+    = f.label :style, '集合住宅', class: 'form-check-label'
+  .form-group.apartment
+    = f.label :apartment_name, '物件名', class: 'mt-3'
+    = f.text_field :apartment_name, class: 'form-control'
+  .form-group.apartment
+    = f.label :room_number, '部屋番号'
+    = f.text_field :room_number, class: 'form-control'
+  = f.submit '登録する', class: 'btn btn-primary mt-3'
