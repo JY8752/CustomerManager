@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
+  root to: 'top#index'
+  resources :houses
+
   resources :orders, only: [:new, :index, :create]
   post '/orders/save', to: 'orders#save', as: 'save_order'
   resources :customers, only: [:create]
@@ -15,8 +18,5 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users
   end
-  
-  root to: 'top#index'
-  resources :houses
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

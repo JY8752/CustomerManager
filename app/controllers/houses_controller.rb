@@ -21,9 +21,9 @@ class HousesController < ApplicationController
 
     if @house.save
      @house.house = @house.id
-     while @house.house.length < 4 do
-       @house.house = "0" + @house.house
-     end
+       while @house.house.length < 4 do
+         @house.house = "0" + @house.house
+       end
       redirect_to root_url, notice: "ハウス「#{@house.house}」を登録しました。"
      @house.save
     else
@@ -50,6 +50,6 @@ class HousesController < ApplicationController
   private
 
   def house_params
-    params.require(:house).permit(:address, :style, :apartment_name, :room_number, :house)
+    params.require(:house).permit(:address, :style, :apartment_name, :room_number, :house, :customer_id)
   end
 end
