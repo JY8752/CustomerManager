@@ -67,5 +67,3 @@ gem 'html2slim'
 gem 'bootstrap'
 
 gem 'ransack'
-
-# gem 'rails_12factor', group: :production
