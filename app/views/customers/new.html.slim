@@ -9,5 +9,5 @@ h1 お客様情報入力
     = f.text_field :birthday, class: 'form-control'
   .form-group
     = f.label :phone_number, '連絡先'
-    = f.text_field :phone_number, class: 'form-control'
+    = f.telephone_field :phone_number, class: 'form-control'
   = f.submit '次へ', class: 'btn btn-primary'

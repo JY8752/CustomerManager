@@ -48,6 +48,7 @@ class OrdersController < ApplicationController
     if @customer.save && @order.save
       redirect_to root_url, notice: "オーダーが完了しました。"
     else
+      flash.now.alert = 'オーダーに失敗しました。'
       render :index
     end
   end

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   resources :orders, only: [:new, :index, :create]
-  post '/orders', to: 'orders#save', as: 'save_order'
+  post '/orders/save', to: 'orders#save', as: 'save_order'
   resources :customers, only: [:create]
   get '/customers/:id', to: 'customers#new', as: 'new_customer'
   # get '/customers/:id', to: 'sessions#next', as: 'customers'
