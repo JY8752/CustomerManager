@@ -18,7 +18,7 @@ table.table.table-hover
       th= House.human_attribute_name(:room_number)
       td= @house.room_number
 
-= link_to '新規オーダー', new_customer_path(@house.id), class: 'btn btn-primary mr-3'
+= link_to '新規オーダー', new_customer_path(id: @house.id), class: 'btn btn-primary mr-3'
 / = link_to 'オーダー編集', edit_order_path, class: 'btn btn-secondary mr-3'
 / = link_to 'オーダー削除', method: :delete, data: { confirm: "オーダーを削除します。よろしいですか？" }, class: 'btn btn-danger'
 

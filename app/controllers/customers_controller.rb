@@ -4,6 +4,7 @@ class CustomersController < ApplicationController
       session.delete(:customer_birthday) if session[:customer_birthday]
       session.delete(:customer_phone_number) if session[:customer_phone_number]
       session.delete(:customer_id) if session[:customer_id]
+      session[:customer_id] = params[:id]
       # flash[:notice] = "セッションデータを初期化しました。"
   end
 
@@ -11,7 +12,6 @@ class CustomersController < ApplicationController
     session[:customer_name] = customer_params[:name]
     session[:customer_birthday] = customer_params[:birthday]
     session[:customer_phone_number] = customer_params[:phone_number]
-    session[:customer_id] = params[:id]
     redirect_to new_order_url
   end
 

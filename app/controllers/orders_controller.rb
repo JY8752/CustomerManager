@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
 
   def index
-    @house = House.find_by(session[:customer_id])
+    @house ||= House.find_by(id: session[:customer_id])
 
     @customer = Customer.new
     @customer.name = session[:customer_name]
@@ -34,21 +34,21 @@ class OrdersController < ApplicationController
 
   def save
     @customer = Customer.new
-    @customer.merge(house_id: session[:customer_id])
+    # @customer.merge(house_id: session[:customer_id])
     @customer.name = session[:customer_name]
     @customer.birthday = session[:customer_birthday]
     @customer.phone_number = session[:customer_phone_number]
 
     @order = Order.new
-    @order.merge(customer_id: session[:customer_id])
+    # @order.merge(customer_id: session[:customer_id])
     @order.TV = session[:order_TV]
     @order.NET = session[:order_NET]
     @order.PHONE = session[:order_PHONE]
 
-    if @customer.save! && @order.save!
+    if @customer.save && @order.save
       redirect_to root_url, notice: "オーダーが完了しました。"
-    # else
-    #   render :index
+    else
+      render :index
     end
   end
 
