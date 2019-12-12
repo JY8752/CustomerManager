@@ -1,24 +1,19 @@
-# README
+ README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+You can manage customers,services,users by CustomserManager.
+You can make new House(resister address), new Customer and Order by using House.
+Each model has bacic CRUDE function.
 
-Things you may want to cover:
+Model
+* House
+house model is address information.Houses table have some columns.There are house,address, style, apartment_name, room_number.House is ID number.Only 4 digits.Style is 2 type, apartment or non-apartment(Detached house).
+User given admin authority can make new House.
 
-* Ruby version
+* Customer
+Customers table have some columns.There are name, phone_number, birthday.
 
-* System dependencies
+* Order
+Order table have some columns.There are TV, Net, Phone.These are fictional service.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* User
+User table have some columuns.There are name, email, password, confirmation_password, admin.
