@@ -6,6 +6,11 @@ class HousesController < ApplicationController
 
   def show
     @house = House.find(params[:id])
+    @customer = @house.customer
+    # if Customer.find_by(id: params[:id]) != nil
+    #   @order = Customer.find(params[:id]).order
+    # end
+    @order = Order.find_by(customer_id: params[:id])
   end
 
   def new

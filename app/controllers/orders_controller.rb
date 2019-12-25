@@ -7,13 +7,13 @@ class OrdersController < ApplicationController
     @customer.name = session[:customer_name]
     @customer.birthday = session[:customer_birthday]
     @customer.phone_number = session[:customer_phone_number]
-    @customer.house_id = session[:customer_id]
+    # @customer.house_id = session[:customer_id]
 
     @order = Order.new
     @order.TV = session[:order_TV]
     @order.NET = session[:order_NET]
     @order.PHONE = session[:order_PHONE]
-    @order.customer_id = session[:customer_id]
+    # @order.customer_id = session[:customer_id]
   end
 
   def new
@@ -30,6 +30,9 @@ class OrdersController < ApplicationController
   end
 
   def edit
+    @house = House.find(params[:id])
+    @customer = @house.customer
+    @order = Customer.find(params[:id]).order
   end
 
   def save
@@ -38,12 +41,14 @@ class OrdersController < ApplicationController
     @customer.name = session[:customer_name]
     @customer.birthday = session[:customer_birthday]
     @customer.phone_number = session[:customer_phone_number]
+    @customer.house_id = session[:customer_id]
 
     @order = Order.new
     # @order.merge(customer_id: session[:customer_id])
     @order.TV = session[:order_TV]
     @order.NET = session[:order_NET]
     @order.PHONE = session[:order_PHONE]
+    @order.customer_id = session[:customer_id]
 
     if @customer.save && @order.save
       redirect_to root_url, notice: "オーダーが完了しました。"

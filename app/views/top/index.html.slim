@@ -4,14 +4,14 @@
 = link_to 'ハウス編集', houses_path, class: 'btn btn-primary ml-3'
 
 = search_form_for @q, url: root_path, class: 'mb-5' do |f|
-  / .form-group.row
-  /   = f.label :name_cont, '氏名', class: 'col-sm-2 col-form-label'
-  /   .col-sm-10
-  /     = f.search_field :name_cont, class: 'form-control'
-  / .form-group.row
-  /   = f.label :name_cont, '電話番号', class: 'col-sm-2 col-form-label'
-  /   .col-sm-10
-  /     = f.search_field :name_cont, class: 'form-control'
+  .form-group.row.mt-3
+    = f.label :customer_name_cont, '氏名', class: 'col-sm-2 col-form-label'
+    .col-sm-10
+      = f.search_field :customer_name_cont, class: 'form-control'
+  .form-group.row
+    = f.label :customer_phpne_number_cont, '電話番号', class: 'col-sm-2 col-form-label'
+    .col-sm-10
+      = f.search_field :customer_phone_number_cont, class: 'form-control'
   .form-group.row
     = f.label :address_cont, '住所', class: 'col-sm-2 col-form-label mt-3'
     .col-sm-10
@@ -20,10 +20,6 @@
     = f.label :house_eq, 'ハウス', class: 'col-sm-2 col-form-label'
     .col-sm-10
       = f.search_field :house_eq, class: 'form-control'
-  / .form-group.row
-  /   = f.label :name_cont, 'お客様番号', class: 'col-sm-2 col-form-label'
-  /   .col-sm-10
-  /     = f.search_field :name_cont, class: 'form-control'
   .form-group.row
     = f.label :apartment_name_cont, '物件名', class: 'col-sm-2 col-form-label'
     .col-sm-10

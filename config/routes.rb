@@ -8,9 +8,9 @@ Rails.application.routes.draw do
   root to: 'top#index'
   resources :houses
 
-  resources :orders, only: [:new, :index, :create]
+  resources :orders, only: [:new, :index, :create, :edit]
   post '/orders/save', to: 'orders#save', as: 'save_order'
-  resources :customers, only: [:create]
+  resources :customers, only: [:create, :destroy]
   get '/customers/:id', to: 'customers#new', as: 'new_customer'
   # get '/customers/:id', to: 'sessions#next', as: 'customers'
   # post '/orders/:id', to: 'sessions#confirm'

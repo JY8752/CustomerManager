@@ -18,6 +18,13 @@ class CustomersController < ApplicationController
   def edit
   end
 
+  def destroy
+    @order = Order.find_by(customer_id: params[:id])
+    @customer = Customer.find_by(house_id: params[:id])
+    @order.destroy
+    @customer.destroy
+    redirect_to root_url, notice: "顧客情報およびオーダーを削除しました。"
+  end
   private
 
  def  customer_params

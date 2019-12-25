@@ -17,8 +17,27 @@ table.table.table-hover
     tr
       th= House.human_attribute_name(:room_number)
       td= @house.room_number
+    - if @customer
+      tr
+        th= Customer.human_attribute_name(:name)
+        td= @customer.name
+      tr
+        th= Customer.human_attribute_name(:birthday)
+        td= @customer.birthday
+      tr
+        th= Customer.human_attribute_name(:phone_number)
+        td= @customer.phone_number
+      tr
+         th= Order.human_attribute_name(:TV)
+         td= @order.TV
+      tr
+         th= Order.human_attribute_name(:NET)
+         td= @order.NET
+      tr
+        th= Order.human_attribute_name(:PHONE)
+        td= @order.PHONE
 
 = link_to '新規オーダー', new_customer_path(id: @house.id), class: 'btn btn-primary mr-3'
-/ = link_to 'オーダー編集', edit_order_path, class: 'btn btn-secondary mr-3'
-/ = link_to 'オーダー削除', method: :delete, data: { confirm: "オーダーを削除します。よろしいですか？" }, class: 'btn btn-danger'
+/ = link_to 'オーダー編集', edit_order_path, class: 'btn btn-success mr-3'
+= link_to 'オーダー削除', customer_path, method: :delete, class: 'btn btn-danger ', data: { confirm: "お客様情報およびオーダーを削除します。よろしいですか？" }
 
