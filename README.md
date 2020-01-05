@@ -1,5 +1,5 @@
  README
-CustomerManager(アプリ名)　ec2-52-194-63-178.ap-northeast-1.compute.amazonaws.com
+CustomerManager(アプリ名) http://portforio.mycustomermanager.com/
 
 このアプリはサービス販売企業における顧客管理アプリを想定しています。
 住所に'ハウス'というIDを割り当て、そのハウスを元に顧客情報、サービス内容を
