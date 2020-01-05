@@ -1,7 +1,9 @@
  README
-CustomerManager(アプリ名)
-このアプリはサービス販売企業における顧客管理アプリを想定しています。
+CustomerManager(アプリ名)　ec2-52-194-63-178.ap-northeast-1.compute.amazonaws.com
 
+このアプリはサービス販売企業における顧客管理アプリを想定しています。
+住所に'ハウス'というIDを割り当て、そのハウスを元に顧客情報、サービス内容を
+登録・参照ができます。
 
 機能
 
@@ -54,41 +56,34 @@ CustomerManager(アプリ名)
   - 'ransack'
   
   
- データベース
+ データベース・サーバー
  
  
   - postgresql
+  - nginex(webサーバー)
+  - puma(アプリサーバー)
   
   
- 開発環境
+ ローカル開発環境
  
  
-  - Vagrant
+  - Vagrant(VirtualMachine)
+  
+  - docker(学習中)
   
   
   - CentOS7
   
   
- デプロイ
+ インフラ
  
- 
+  - AWS(EC2)
+   - ElasticIP
+   - Route 53
+   - RDS
+   - ロードバランサー(HTTPS通信)
   - heroku
   
-
-You can manage customers,services,users by CustomserManager.
-You can make new House(resister address), new Customer and Order by using House.
-Each model has bacic CRUDE function.
-
-Model
-* House
-house model is address information.Houses table have some columns.There are house,address, style, apartment_name, room_number.House is ID number.Only 4 digits.Style is 2 type, apartment or non-apartment(Detached house).
-User given admin authority can make new House.
-
-* Customer
-Customers table have some columns.There are name, phone_number, birthday.
-
-* Order
-Order table have some columns.There are TV, Net, Phone.These are fictional service.
-
-* User
-User table have some columuns.There are name, email, password, confirmation_password, admin.
+　CI/CD
+   - circleCI(学習中)
+   - capistrano(学習中)
